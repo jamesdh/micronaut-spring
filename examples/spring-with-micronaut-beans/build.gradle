@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    annotationProcessor "io.micronaut.spring:micronaut-spring-annotation:4.0.1"
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    implementation("org.codehaus.groovy:groovy:3.0.9")
+    implementation("org.codehaus.groovy:groovy-all:3.0.9")
+    implementation("org.codehaus.groovy:groovy-sql:3.0.9")
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.example:micronaut-lib:0.1'
+    implementation 'io.micronaut.spring:micronaut-spring:4.0.1'
+    implementation 'io.micronaut.spring:micronaut-spring-boot:4.0.1'
+    implementation 'jakarta.annotation:jakarta.annotation-api'
+
+    compileOnly "io.micronaut:micronaut-inject"
+
+    testImplementation platform('org.spockframework:spock-bom:2.0-groovy-3.0')
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    testImplementation 'org.spockframework:spock-spring:2.0-groovy-3.0'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'io.micronaut:micronaut-bom:3.3.1'
+    }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}
