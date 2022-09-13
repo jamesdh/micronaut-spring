@@ -32,28 +32,28 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor "io.micronaut.spring:micronaut-spring-annotation:4.0.1"
+    annotationProcessor 'io.micronaut.spring:micronaut-spring-annotation:4.3.0'
     annotationProcessor "io.micronaut:micronaut-inject-java"
-    implementation("org.codehaus.groovy:groovy:3.0.9")
-    implementation("org.codehaus.groovy:groovy-all:3.0.9")
-    implementation("org.codehaus.groovy:groovy-sql:3.0.9")
+    implementation('org.codehaus.groovy:groovy:3.0.12')
+    implementation('org.codehaus.groovy:groovy-all:3.0.12')
+    implementation('org.codehaus.groovy:groovy-sql:3.0.12')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.example:micronaut-lib:0.1'
-    implementation 'io.micronaut.spring:micronaut-spring:4.0.1'
-    implementation 'io.micronaut.spring:micronaut-spring-boot:4.0.1'
+    implementation 'io.micronaut.spring:micronaut-spring:4.3.0'
+    implementation 'io.micronaut.spring:micronaut-spring-boot:4.3.0'
     implementation 'jakarta.annotation:jakarta.annotation-api'
 
     compileOnly "io.micronaut:micronaut-inject"
 
-    testImplementation platform('org.spockframework:spock-bom:2.0-groovy-3.0')
+    testImplementation platform('org.spockframework:spock-bom:2.1-groovy-3.0')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
-    testImplementation 'org.spockframework:spock-spring:2.0-groovy-3.0'
+    testImplementation 'org.spockframework:spock-core:2.2-groovy-3.0'
+    testImplementation 'org.spockframework:spock-spring:2.2-groovy-3.0'
 }
 
 dependencyManagement {
     imports {
-        mavenBom 'io.micronaut:micronaut-bom:3.3.1'
+        mavenBom 'io.micronaut:micronaut-bom:3.6.3'
     }
 }
 
